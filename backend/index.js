@@ -5,8 +5,10 @@ import { Book } from "./model/booksModel.js";
 
 const app = express();
 
+//Middleware for parsing request body
+app.use(express.json());
+
 app.get("/", (req, res) => {
-    console.log(req);
     return res.status(234).send("Welcome to mern stack");
 });
 
