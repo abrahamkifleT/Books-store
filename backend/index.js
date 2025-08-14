@@ -15,25 +15,34 @@ app.get("/", (req, res) => {
 
 app.post("/books", async (req, res) => {
     try {
-        if (req.body.title || req.body.author || req.body.publisher) {
-            return response.status(400).send({ message: "Please provide all the fields" });
+        if (!req.body.title || !req.body.author || !req.body.publishYear) {
+            return res.status(400).send({ message: "Please provide all the fields" });
         }
         const newBook = {
             title: req.body.title,
-            author: req.body.title,
-            publisher: req.body.title,
+            author: req.body.author,
+            publishYear: req.body.publishYear,
         };
 
         const book = await Book.create(newBook);
         return res.status(201).send(book);
     } catch (error) {
         console.log(error.message);
-        response.status(500).send({ message: error.message });
+        res.status(500).send({ message: error.message });
     }
 });
 
 
-
+app.get("/books", async (req, res) => {
+    try {
+        // Fetch all books from the database
+        const books = await Book.find({});
+        return res.status(200).json(books);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
+    }
+})
 
 mongoose
     .connect(mongoDBURL)
