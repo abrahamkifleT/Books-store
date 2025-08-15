@@ -7,13 +7,15 @@ import cors from "cors";
 
 const app = express();
 
+
+// Options 1: Allow All Origins with Default of cors(*)
+app.use(cors());
 //Middleware for parsing request body
 app.use(express.json());
 
 //Middleware for handling routes
 app.use("/books", booksRoute);
-// Options 1: Allow All Origins with Default of cors(*)
-app.use(cors());
+
 
 // app.use(cors({
 //     origin: "http//localhost:3000",
