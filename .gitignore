@@ -42,3 +42,40 @@ temp/
 
 # Test coverage
 coverage/
+
+# dependencies
+/node_modules
+
+# production build
+/build
+
+# misc
+.DS_Store
+.env
+.env.*.local
+
+# log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# lock files (optional — keep if you want exact dependency versions)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# temporary
+.tmp
+.cache
+dist
+
+# test coverage
+coverage
