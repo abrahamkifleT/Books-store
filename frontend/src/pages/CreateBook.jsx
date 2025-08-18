@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DeleteBook = () => {
+const CreateBook = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const DeleteBook = () => {
   )
 }
 
-export default DeleteBook
+export default CreateBook
