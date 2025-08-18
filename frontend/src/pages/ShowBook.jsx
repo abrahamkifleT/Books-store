@@ -1,4 +1,3 @@
-import React from 'react'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -21,7 +20,7 @@ const ShowBook = () => {
         console.error("Error fetching book details:", error);
         setLoading(false);
       });
-  }, []);
+  }, [id]);
   return (
     <div className='p-4 '>
       <BackButton />
@@ -60,14 +59,14 @@ const ShowBook = () => {
             <span className='text-xl mr-4 text-gray-500'>
               Create Time
             </span>
-            <span>{new Date(book.createdAt).toString}</span>
+            <span>{book.createdAt ? new Date(book.createdAt).toString() : "N/A"}</span>
           </div>
 
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>
               Last Update Time
             </span>
-            <span>{new Date(book.updatedAt).toString()}</span>
+            <span>{book.createdAt ? new Date(book.createdAt).toString() : "N/A"}</span>
           </div>
         </div>
       )}
